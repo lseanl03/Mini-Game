@@ -6,3 +6,9 @@ public enum PoolType
     Enemy_Rat,
 
 }
+
+public enum PatrolState { 
+    Patrol, 
+    Idle 
+}
+

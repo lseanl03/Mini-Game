@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] private Transform spawnPoint;
     public DialogueData dialogueData { get; private set; }
 
     protected override void Awake()
@@ -14,6 +15,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        var enemy = PoolManager.Instance.GetObject<Enemy>(PoolType.Enemy_Slime, Vector3.zero, transform);
+        var enemy = PoolManager.Instance.GetObject<Enemy>(PoolType.Enemy_Slime, spawnPoint.position, transform);
+        enemy.PatrolPos = spawnPoint;
     }
 }
