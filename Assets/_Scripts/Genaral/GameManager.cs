@@ -12,4 +12,8 @@ public class GameManager : Singleton<GameManager>
         if (!dialogueData) dialogueData = LoadManager.SODataLoad<DialogueData>("DialogueData");
     }
 
+    private void Start()
+    {
+        var enemy = PoolManager.Instance.GetObject<Enemy>(PoolType.Enemy_Slime, Vector3.zero, transform);
+    }
 }

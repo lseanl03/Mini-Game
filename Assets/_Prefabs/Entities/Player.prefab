@@ -454,6 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6490628417767253822}
   - component: {fileID: 6683300018217345950}
+  - component: {fileID: 4491688616377585733}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -499,6 +500,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!210 &4491688616377585733
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378486545649611202}
+  m_Enabled: 1
+  m_SortingLayerID: 373409765
+  m_SortingLayer: 1
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &3458750747175669429
 GameObject:
   m_ObjectHideFlags: 0
