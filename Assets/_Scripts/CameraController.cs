@@ -5,6 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField] private float offsetY;
     [SerializeField] private float smoothSpeed; 
     [SerializeField] private  Transform target;
     private void FixedUpdate()
@@ -17,7 +18,7 @@ public class CameraController : MonoBehaviour
         if (target == null) return;
         Vector3 targetPosition = target.position;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition, smoothSpeed);
-        transform.position = new Vector3(smoothedPosition.x, smoothedPosition.y, transform.position.z);
+        transform.position = new Vector3(smoothedPosition.x, smoothedPosition.y + offsetY, transform.position.z);
     }
 
 }
