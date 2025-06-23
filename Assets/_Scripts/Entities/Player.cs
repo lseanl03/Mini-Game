@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    [SerializeField] private float directionX;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 5f;
 
@@ -16,11 +17,16 @@ public class Player : Entity
         Move();
         Jump();
         Run();
+        Flip();
     }
     private void Move()
     {
-        float moveInput = Input.GetAxisRaw("Horizontal");
-        _rb2d.velocity = new Vector2(moveInput * speed, _rb2d.velocity.y);
+        directionX = Input.GetAxisRaw("Horizontal");
+        _rb2d.velocity = new Vector2(directionX * speed, _rb2d.velocity.y);
+
+        var isRun = directionX > 0.1f || directionX < -0.1f;
+        _animator.SetBool("isRun", isRun);
+
     }
     private void Jump()
     {
@@ -34,6 +40,17 @@ public class Player : Entity
         if (Input.GetKey(KeyCode.LeftShift))
         {
             _rb2d.velocity = new Vector2(_rb2d.velocity.x * 2, _rb2d.velocity.y);
+        }
+    }
+
+    protected override void Flip()
+    {
+        if (directionX > 0 && !_isFacingRight || directionX < 0 && _isFacingRight)
+        {
+            _isFacingRight = !_isFacingRight;
+            Vector3 newScale = transform.localScale;
+            newScale.x *= -1f;
+            transform.localScale = newScale;
         }
     }
 
