@@ -32,14 +32,23 @@ public class Entity : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            _isGround = true;
+            GroundEnter();
         }
     }
     protected virtual void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            _isGround = false;
+            GroundExit();
         }
+    }
+
+    protected virtual void GroundEnter()
+    {
+        _isGround = true;
+    }
+    protected virtual void GroundExit()
+    {
+        _isGround = false;
     }
 }

@@ -5,6 +5,7 @@ public enum PoolType
     Enemy_Bat,
     Enemy_Rat,
 
+    Player_Bullet,
 }
 
 public enum PatrolState { 

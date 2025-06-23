@@ -170,6 +170,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2711218879073082441, guid: a82854a6f1e8fe4458b064de05a2ff1d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2711218879073082441, guid: a82854a6f1e8fe4458b064de05a2ff1d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3618649182948781011, guid: a82854a6f1e8fe4458b064de05a2ff1d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -287,7 +295,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -516,6 +524,9 @@ MonoBehaviour:
   - poolType: 2
     initialSize: 1
     prefabObj: {fileID: 6868398054256783269, guid: 602c798fe814e8640989c969ff5f92f0, type: 3}
+  - poolType: 3
+    initialSize: 1
+    prefabObj: {fileID: 440310835666406440, guid: da27f74a350c9484faf76498dee2669c, type: 3}
 --- !u!4 &1236673311
 Transform:
   m_ObjectHideFlags: 0

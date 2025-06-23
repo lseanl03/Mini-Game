@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2897755893448114053}
   - component: {fileID: 6476603142429402051}
   - component: {fileID: 5236032128795801917}
+  - component: {fileID: -5074938192163662035}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Enemy
@@ -47,6 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af90c5000a4f6bc47990ea8a0cbb3646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isGround: 0
+  _canMove: 1
+  _isFacingRight: 1
+  _moveSpeed: 10
+  _patrolDistance: 5
+  _waitTime: 2
+  _waitCounter: 0
 --- !u!61 &6476603142429402051
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -119,6 +127,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-5074938192163662035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6868398054256783269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b073a05a7817a045b4ba37a9a1a91be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 10
+  _currentHealth: 0
 --- !u!1 &7562206624314690813
 GameObject:
   m_ObjectHideFlags: 0

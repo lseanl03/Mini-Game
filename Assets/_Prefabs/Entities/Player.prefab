@@ -617,6 +617,37 @@ MonoBehaviour:
     m_Extent: {x: 0.19900262, y: 0.37113, z: 0}
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!1 &3601705227661885818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2711218879073082441}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2711218879073082441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3601705227661885818}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008748336466966884}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3618649182948781011
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +660,7 @@ GameObject:
   - component: {fileID: 7799432977800228191}
   - component: {fileID: 4922232640720258933}
   - component: {fileID: 8536912936500231056}
+  - component: {fileID: 5574449901761712440}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -650,6 +682,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6490628417767253822}
+  - {fileID: 2711218879073082441}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7799432977800228191
@@ -726,9 +759,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f650f37efcc4b4a44a440da50bae015a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGrounded: 0
-  speed: 10
-  jumpForce: 20
+  _isGround: 0
+  _canMove: 1
+  _isFacingRight: 1
+  _moveSpeed: 10
+  _isRun: 0
+  _directionX: 0
+  _speed: 5
+  _jumpForce: 5
+  _shootPoint: {fileID: 2711218879073082441}
+--- !u!114 &5574449901761712440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618649182948781011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc8b45ff8fcb7149b8b1c840c525061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 10
+  _currentHealth: 0
 --- !u!1 &3776155478872235587
 GameObject:
   m_ObjectHideFlags: 0
