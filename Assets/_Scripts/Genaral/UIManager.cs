@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class UIManager : Singleton<UIManager>
 {
     [SerializeField] private Button _sceneTransitionButton;
+    public DialoguePanel DialoguePanel { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
+        if(!DialoguePanel) DialoguePanel = GetComponentInChildren<DialoguePanel>();
         _sceneTransitionButton.onClick.AddListener(OnSceneTransitionButtonClicked);
     }
 

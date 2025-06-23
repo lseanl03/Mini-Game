@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Trap
+  - WayPoint
+  - Tile
+  - MovingPlatform
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -42,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 373409765
     locked: 0
