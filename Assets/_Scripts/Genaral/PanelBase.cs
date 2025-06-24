@@ -26,6 +26,7 @@ public class PanelBase : MonoBehaviour
 
     public virtual void PanelState(bool state)
     {
-        menu.SetActive(state);
+        if (state) ShowPanel();
+        else HidePanel();
     }
 }
