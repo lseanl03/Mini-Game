@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public PoolType PoolType{ get; protected set; }
     [SerializeField] protected bool _isGround = false;
     [SerializeField] protected bool _canMove = true;
     [SerializeField] protected bool _isFacingRight = true;

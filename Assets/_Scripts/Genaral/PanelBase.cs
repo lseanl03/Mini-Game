@@ -23,4 +23,9 @@ public class PanelBase : MonoBehaviour
     {
         menu.SetActive(false);
     }
+
+    public virtual void PanelState(bool state)
+    {
+        menu.SetActive(state);
+    }
 }

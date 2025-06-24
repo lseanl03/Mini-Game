@@ -13,3 +13,8 @@ public enum PatrolState {
     Idle 
 }
 
+public enum SceneType
+{
+    Town,
+    Hunting,
+}

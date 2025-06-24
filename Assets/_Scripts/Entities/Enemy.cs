@@ -5,12 +5,18 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    public Transform PatrolPos { get; set; }
+    public Transform SpawnPos { get; private set; }
     [SerializeField] private float _patrolDistance = 5f;
     [SerializeField] private float _waitTime = 2f;
     [SerializeField] private float _waitCounter;
 
     private PatrolState _state = PatrolState.Patrol;
+
+    public void GetData(Transform spawnPos, PoolType poolType)
+    {
+        SpawnPos = spawnPos;
+        PoolType = poolType;
+    }
 
     protected virtual void Update()
     {
@@ -27,10 +33,10 @@ public class Enemy : Entity
 
     private void Patrol()
     {
-        if (!PatrolPos || !_isGround) return;
+        if (!SpawnPos || !_isGround) return;
 
-        var leftPoint = PatrolPos.position.x - _patrolDistance;
-        var rightPoint = PatrolPos.position.x + _patrolDistance;
+        var leftPoint = SpawnPos.position.x - _patrolDistance;
+        var rightPoint = SpawnPos.position.x + _patrolDistance;
         _rb2d.velocity = new Vector2(_isFacingRight ? _moveSpeed : -_moveSpeed, _rb2d.velocity.y);
         _animator.SetBool("Run", true);
 

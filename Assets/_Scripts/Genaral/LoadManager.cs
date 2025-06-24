@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadManager : Singleton<LoadManager>
 {
-    public static void LoadScene(string sceneName)
+    private Coroutine _transitionCoroutine;
+
+    private AsyncOperation LoadScene(SceneType sceneType)
     {
-        SceneManager.LoadScene($"{sceneName}Scene");
+        return SceneManager.LoadSceneAsync($"{sceneType.ToString()}Scene");
     }
 
     public static Sprite SpriteLoad(string path)
@@ -40,5 +42,28 @@ public class LoadManager : Singleton<LoadManager>
             Debug.LogError($"Data not found at path: {dataPath}");
         }
         return data;
+    }
+
+    public void ChangeScene(SceneType sceneType)
+    {
+        if (_transitionCoroutine != null) StopCoroutine(_transitionCoroutine);
+        _transitionCoroutine = StartCoroutine(TransitionCoroutine(sceneType));
+    }
+
+    private IEnumerator TransitionCoroutine(SceneType sceneType)
+    {
+        var loadScene = LoadScene(sceneType);
+        loadScene.allowSceneActivation = false;
+        while (!loadScene.isDone)
+        {
+            if (loadScene.progress >= 0.9f)
+            {
+                loadScene.allowSceneActivation = true;
+            }
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.1f);
+
+        EventManager.OnSceneChanged?.Invoke(sceneType);
     }
 }

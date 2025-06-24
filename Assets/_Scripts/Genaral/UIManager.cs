@@ -5,18 +5,31 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
-    [SerializeField] private Button _sceneTransitionButton;
     public DialoguePanel DialoguePanel { get; private set; }
+    public TownPanel TownPanel { get; private set; }
+    public HuntingPanel HuntingPanel { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
         if(!DialoguePanel) DialoguePanel = GetComponentInChildren<DialoguePanel>();
-        _sceneTransitionButton.onClick.AddListener(OnSceneTransitionButtonClicked);
+        if(!TownPanel) TownPanel = GetComponentInChildren<TownPanel>();
+        if(!HuntingPanel) HuntingPanel = GetComponentInChildren<HuntingPanel>();
+    }
+    private void OnEnable()
+    {
+        EventManager.OnSceneChanged += OnSceneChanged;
+    }
+    private void OnDisable()
+    {
+        EventManager.OnSceneChanged -= OnSceneChanged;
     }
 
-    private void OnSceneTransitionButtonClicked()
+    private void OnSceneChanged(SceneType sceneType)
     {
-        LoadManager.LoadScene("Huting");
+        TownPanel.PanelState(sceneType == SceneType.Town);
+        HuntingPanel.PanelState(sceneType == SceneType.Hunting);
+        DialoguePanel.PanelState(false);
     }
+
 }

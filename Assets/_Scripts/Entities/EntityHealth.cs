@@ -6,11 +6,11 @@ public class EntityHealth : MonoBehaviour
 {
     [SerializeField] public int _maxHealth = 10;
     [SerializeField] public int _currentHealth;
-    private void Awake()
+    protected virtual void Awake()
     {
         _currentHealth = _maxHealth;
     }
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         _currentHealth -= damage;
         if (_currentHealth <= 0)
@@ -18,8 +18,5 @@ public class EntityHealth : MonoBehaviour
             Die();
         }
     }
-    private void Die()
-    {
-        Destroy(gameObject);
-    }
+    protected virtual void Die() { }
 }
