@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public int EnemyKilled { get; set; }
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] public SceneType SceneType;
     [SerializeField] float _spawnTime = 2f;
-    public DialogueData dialogueData { get; private set; }
+    
+    public SceneType SceneType;
+    public int EnemyKilled { get; set; }
+    public DialogueData DialogueData { get; private set; }
+    public ItemData ItemData { get; private set; }
+
     private Coroutine spawnCoroutine;
     protected override void Awake()
     {
         base.Awake();
-        if (!dialogueData) dialogueData = LoadManager.SODataLoad<DialogueData>("DialogueData");
+        if (!DialogueData) DialogueData = LoadManager.SODataLoad<DialogueData>("DialogueData");
+        if (!ItemData) ItemData = LoadManager.SODataLoad<ItemData>("ItemData");
     }
 
     private void OnEnable()
@@ -28,8 +32,18 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        SceneType = SceneType.Town;
-        UIManager.Instance.TownPanel.gameObject.SetActive(true);
+        InitData();
+    }
+
+    private void InitData()
+    {
+        var content = UIManager.Instance.ShopPanel.Content;
+        foreach (var item in ItemData.items)
+        {
+            ShopItem shopItem = PoolManager.Instance.GetObject<ShopItem>(
+                PoolType.ShopItem, Vector2.zero, content);
+            shopItem.Init(item);
+        }
     }
 
     private void OnSceneChanged(SceneType sceneType)

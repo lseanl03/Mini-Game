@@ -15,8 +15,8 @@ public class DialoguePanel : PanelBase
     {
         _hidePos = -220;
         _showPos = 175;
-        _agreeButton.onClick.AddListener(OnAgreeButtonClicked);
-        _rejectButton.onClick.AddListener(OnRejectButtonClicked);
+        _agreeButton.onClick.AddListener(OnAgreeClick);
+        _rejectButton.onClick.AddListener(OnRejectClick);
 
         base.Awake();
     }
@@ -30,12 +30,12 @@ public class DialoguePanel : PanelBase
         EventManager.OnNPCCollisionEnter -= OnNPCCollisionEnter;
         EventManager.OnNPCCollisionExit -= HidePanel;
     }
-    private void OnAgreeButtonClicked()
+    private void OnAgreeClick()
     {
         HidePanel();
         UIManager.Instance.ShopPanel.PanelState(true);
     }
-    private void OnRejectButtonClicked()
+    private void OnRejectClick()
     {
         HidePanel();
     }
@@ -43,24 +43,26 @@ public class DialoguePanel : PanelBase
     {
         ShowPanel();
 
-        var dialogData = GameManager.Instance.dialogueData.GetRandomDialogue();
+        var dialogData = GameManager.Instance.DialogueData.GetRandomDialogue();
         SetContentText(dialogData.description);
     }
     protected override void ShowPanel()
     {
-        base.ShowPanel();
+        _menu.gameObject.SetActive(true);
+        _menu.anchoredPosition = new Vector2(0, _hidePos);
         _menu.DOAnchorPosY(_showPos, 0.2f).SetEase(Ease.Linear)
             .OnComplete(() =>
             {
-                _bgButton.gameObject.SetActive(true);
+                _bg.gameObject.SetActive(true);
             });
     }
     protected override void HidePanel()
     {
-        base.HidePanel();
+        _menu.anchoredPosition = new Vector2(0, _showPos);
         _menu.DOAnchorPosY(_hidePos, 0.2f).SetEase(Ease.Linear)
             .OnComplete(() =>
             {
+                _bg.gameObject.SetActive(false);
                 _menu.gameObject.SetActive(false);
             });
     }

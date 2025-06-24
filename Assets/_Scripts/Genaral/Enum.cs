@@ -6,6 +6,8 @@ public enum PoolType
     Enemy_Rat,
 
     Player_Bullet,
+
+    ShopItem,
 }
 
 public enum PatrolState { 
@@ -17,4 +19,12 @@ public enum SceneType
 {
     Town,
     Hunting,
+}
+
+public enum ItemType
+{
+    Ao,
+    Quan,
+    Giay,
+    Gang,
 }

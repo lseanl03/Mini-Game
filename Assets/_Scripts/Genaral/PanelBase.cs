@@ -8,26 +8,22 @@ public class PanelBase : MonoBehaviour
 {
     protected float _hidePos = 0;
     protected float _showPos = 0;
-    [SerializeField] protected Button _bgButton;
+    protected CanvasGroup _canvasGroup;
+    [SerializeField] protected Button _bg;
     [SerializeField] protected RectTransform _menu;
 
     protected virtual void Awake()
     {
-        _bgButton.gameObject.SetActive(false);
+        _bg.gameObject.SetActive(false);
         _menu.gameObject.SetActive(false);
+        _canvasGroup = _menu.GetComponent<CanvasGroup>();
 
-        _bgButton.onClick.AddListener((() => PanelState(false)));
+        _bg.onClick.AddListener((() => PanelState(false)));
     }
 
-    protected virtual void ShowPanel()
-    {
-        _menu.gameObject.SetActive(true);
-    }
+    protected virtual void ShowPanel() { }
 
-    protected virtual void HidePanel()
-    {
-        _bgButton.gameObject.SetActive(false);
-    }
+    protected virtual void HidePanel() { }
 
     public virtual void PanelState(bool state)
     {

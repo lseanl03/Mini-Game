@@ -33,7 +33,7 @@ public class Pool
 
     public GameObject GetObject()
     {
-        GameObject obj = objList.Find(o => !o.activeInHierarchy);
+        GameObject obj = objList.Find(o => !o.activeSelf);
         if (!obj)
         {
             obj = CreateNewObject();
@@ -91,6 +91,7 @@ public class PoolManager : Singleton<PoolManager>
         {
             obj.transform.SetParent(parent);
             obj.transform.position = position;
+            obj.transform.localScale = Vector3.one;
             return obj.GetComponent<T>();
         }
         return null;

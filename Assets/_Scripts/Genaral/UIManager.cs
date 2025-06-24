@@ -35,5 +35,4 @@ public class UIManager : Singleton<UIManager>
         DialoguePanel.PanelState(false);
         ShopPanel.PanelState(false);
     }
-
 }
