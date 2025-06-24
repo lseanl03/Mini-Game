@@ -4,13 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HuntingPanel : PanelBase
+public class HuntingUI : MonoBehaviour
 {
     [SerializeField] private Button _backToTownButton;
     [SerializeField] private TextMeshProUGUI _enemyKilledText;
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
         _backToTownButton.onClick.AddListener(OnBackToTown);
     }
 

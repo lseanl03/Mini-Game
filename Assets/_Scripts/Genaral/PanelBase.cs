@@ -1,27 +1,32 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PanelBase : MonoBehaviour
 {
-    private GameObject menu;
+    protected float _hidePos = 0;
+    protected float _showPos = 0;
+    [SerializeField] protected Button _bgButton;
+    [SerializeField] protected RectTransform _menu;
 
     protected virtual void Awake()
     {
-        if (!menu)
-        {
-            menu = transform.GetChild(0).gameObject;
-            menu.SetActive(false);
-        }
+        _bgButton.gameObject.SetActive(false);
+        _menu.gameObject.SetActive(false);
+
+        _bgButton.onClick.AddListener((() => PanelState(false)));
     }
 
-    public virtual void ShowPanel()
+    protected virtual void ShowPanel()
     {
-        menu.SetActive(true);
+        _menu.gameObject.SetActive(true);
     }
-    public virtual void HidePanel()
+
+    protected virtual void HidePanel()
     {
-        menu.SetActive(false);
+        _bgButton.gameObject.SetActive(false);
     }
 
     public virtual void PanelState(bool state)

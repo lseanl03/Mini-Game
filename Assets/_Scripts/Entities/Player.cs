@@ -7,7 +7,6 @@ public class Player : Entity
 {
     [SerializeField] private bool _isRun = false;
     [SerializeField] private float _directionX;
-    [SerializeField] private float _speed = 5f;
     [SerializeField] private float _jumpForce = 5f;
     [SerializeField] private Transform _shootPoint;
 
@@ -28,7 +27,7 @@ public class Player : Entity
     private void Move()
     {
         _directionX = Input.GetAxisRaw("Horizontal");
-        _rb2d.velocity = new Vector2(_directionX * _speed, _rb2d.velocity.y);
+        _rb2d.velocity = new Vector2(_directionX * _moveSpeed, _rb2d.velocity.y);
 
         var isRun = Mathf.Abs(_directionX) > 0.1f;
 

@@ -29,7 +29,7 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         SceneType = SceneType.Town;
-        UIManager.Instance.TownPanel.ShowPanel();
+        UIManager.Instance.TownPanel.gameObject.SetActive(true);
     }
 
     private void OnSceneChanged(SceneType sceneType)

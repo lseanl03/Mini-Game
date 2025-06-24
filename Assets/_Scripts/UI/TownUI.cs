@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TownPanel : PanelBase
+public class TownUI : MonoBehaviour
 {
     [SerializeField] private Button _goHuntingButton;
-    protected override void Awake()
+
+    private void Awake()
     {
-        base.Awake();
         _goHuntingButton.onClick.AddListener(OnGoHuntingClick);
     }
 

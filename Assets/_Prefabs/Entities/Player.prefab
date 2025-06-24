@@ -762,10 +762,9 @@ MonoBehaviour:
   _isGround: 0
   _canMove: 1
   _isFacingRight: 1
-  _moveSpeed: 10
+  _moveSpeed: 15
   _isRun: 0
   _directionX: 0
-  _speed: 5
   _jumpForce: 5
   _shootPoint: {fileID: 2711218879073082441}
 --- !u!114 &5574449901761712440

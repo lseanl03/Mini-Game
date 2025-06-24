@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: DialogueData
   m_EditorClassIdentifier: 
   dialogueList:
-  - description: "Demo N\u1ED9i dung 1"
-  - description: "Demo N\u1ED9i dung 2"
-  - description: "Demo N\u1ED9i dung 3"
+  - description: "B\u1EA1n mu\u1ED1n m\u1EDF shop ch\u1EE9"
