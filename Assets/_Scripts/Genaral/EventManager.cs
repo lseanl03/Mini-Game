@@ -12,4 +12,10 @@ public class EventManager
     public static Action<SceneType> OnSceneChanged;
 
     public static Action OnEnemyDied;
+
+    public static Action<ItemConfig> OnBuyShopItem;
+
+    public static Action<ItemConfig> OnShopItemClick;
+
+    public static Action<ItemConfig> OnInventoryItemClick;
 }

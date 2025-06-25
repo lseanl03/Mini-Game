@@ -9,14 +9,21 @@ public class UIManager : Singleton<UIManager>
     public HuntingUI HuntingPanel { get; private set; }
     public DialoguePanel DialoguePanel { get; private set; }
     public ShopPanel ShopPanel { get; private set; }
+    public InventoryPanel InventoryPanel { get; private set; }
+    public SelectingShopItemPanel SelectingShopItemPanel { get; private set; }
+    public SelectingInventoryItemPanel SelectingInventoryItemPanel { get; private set; }
+
 
     protected override void Awake()
     {
         base.Awake();
-        if(!DialoguePanel) DialoguePanel = GetComponentInChildren<DialoguePanel>();
         if(!TownPanel) TownPanel = GetComponentInChildren<TownUI>();
-        if(!HuntingPanel) HuntingPanel = GetComponentInChildren<HuntingUI>();
         if(!ShopPanel) ShopPanel = GetComponentInChildren<ShopPanel>();
+        if(!HuntingPanel) HuntingPanel = GetComponentInChildren<HuntingUI>();
+        if (!DialoguePanel) DialoguePanel = GetComponentInChildren<DialoguePanel>();
+        if (!InventoryPanel) InventoryPanel = GetComponentInChildren<InventoryPanel>();
+        if(!SelectingShopItemPanel) SelectingShopItemPanel = GetComponentInChildren<SelectingShopItemPanel>();
+        if(!SelectingInventoryItemPanel) SelectingInventoryItemPanel = GetComponentInChildren<SelectingInventoryItemPanel>();
     }
     private void OnEnable()
     {

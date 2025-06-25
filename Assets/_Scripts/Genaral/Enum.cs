@@ -8,6 +8,7 @@ public enum PoolType
     Player_Bullet,
 
     ShopItem,
+    InventoryItem,
 }
 
 public enum PatrolState { 

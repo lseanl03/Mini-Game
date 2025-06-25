@@ -20,13 +20,15 @@ public class DialoguePanel : PanelBase
 
         base.Awake();
     }
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         EventManager.OnNPCCollisionEnter += OnNPCCollisionEnter;
         EventManager.OnNPCCollisionExit += HidePanel;
     }
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         EventManager.OnNPCCollisionEnter -= OnNPCCollisionEnter;
         EventManager.OnNPCCollisionExit -= HidePanel;
     }
@@ -34,6 +36,7 @@ public class DialoguePanel : PanelBase
     {
         HidePanel();
         UIManager.Instance.ShopPanel.PanelState(true);
+        UIManager.Instance.InventoryPanel.PanelState(true);
     }
     private void OnRejectClick()
     {
@@ -50,11 +53,7 @@ public class DialoguePanel : PanelBase
     {
         _menu.gameObject.SetActive(true);
         _menu.anchoredPosition = new Vector2(0, _hidePos);
-        _menu.DOAnchorPosY(_showPos, 0.2f).SetEase(Ease.Linear)
-            .OnComplete(() =>
-            {
-                _bg.gameObject.SetActive(true);
-            });
+        _menu.DOAnchorPosY(_showPos, 0.2f).SetEase(Ease.Linear);
     }
     protected override void HidePanel()
     {
@@ -62,7 +61,6 @@ public class DialoguePanel : PanelBase
         _menu.DOAnchorPosY(_hidePos, 0.2f).SetEase(Ease.Linear)
             .OnComplete(() =>
             {
-                _bg.gameObject.SetActive(false);
                 _menu.gameObject.SetActive(false);
             });
     }

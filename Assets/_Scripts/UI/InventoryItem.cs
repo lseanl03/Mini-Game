@@ -4,11 +4,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopItem : MonoBehaviour
+public class InventoryItem : MonoBehaviour
 {
     private ItemConfig _itemConfig;
-    [SerializeField] private Image _itemIconImage, _coinIconText;
-    [SerializeField] private TextMeshProUGUI _nameText, _descriptionText, priceText;
+    [SerializeField] private Image _itemIconImage;
+    [SerializeField] private TextMeshProUGUI _nameText, _descriptionText;
     [SerializeField] private Button _itemButton;
 
     private void Awake()
@@ -21,11 +21,10 @@ public class ShopItem : MonoBehaviour
         _itemIconImage.sprite = _itemConfig.itemSprite;
         _nameText.text = _itemConfig.itemName;
         _descriptionText.text = _itemConfig.description;
-        priceText.text = _itemConfig.price.ToString();
     }
 
     private void OnItemClick()
     {
-        EventManager.OnShopItemClick?.Invoke(_itemConfig);
+        EventManager.OnInventoryItemClick?.Invoke(_itemConfig);
     }
 }
