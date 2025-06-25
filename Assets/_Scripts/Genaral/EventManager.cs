@@ -18,4 +18,6 @@ public class EventManager
     public static Action<ItemConfig> OnShopItemClick;
 
     public static Action<ItemConfig> OnInventoryItemClick;
+
+    public static Action<PlayerData> OnLoadPlayerData;
 }

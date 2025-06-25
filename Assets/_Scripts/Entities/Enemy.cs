@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    private EnemyData _enemyData;
     public Transform SpawnPos { get; private set; }
     [SerializeField] private float _patrolDistance = 5f;
     [SerializeField] private float _waitTime = 2f;
@@ -14,10 +15,20 @@ public class Enemy : Entity
 
     public void GetData(Transform spawnPos, PoolType poolType)
     {
+        var name = poolType.ToString().Substring(6);
         SpawnPos = spawnPos;
         PoolType = poolType;
-    }
 
+        _enemyData = LoadManager.SODataLoad<EnemyData>($"Enemy/{name}Data");
+        if (!_enemyData) return;
+
+        _entityHealth.Init(_enemyData.MaxHealth);
+        _moveSpeed = _enemyData.MoveSpeed;
+    }
+    private void OnEnable()
+    {
+        if(!_isFacingRight) Flip();
+    }
     protected virtual void Update()
     {
         switch (_state)

@@ -1543,7 +1543,7 @@ GameObject:
   - component: {fileID: 577820344}
   - component: {fileID: 577820343}
   m_Layer: 5
-  m_Name: HPBg
+  m_Name: InfoBg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2903,6 +2903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _goHuntingButton: {fileID: 988867028}
+  _playerNameText: {fileID: 1433700027}
+  _playerLevelText: {fileID: 1846126805}
 --- !u!1 &1199343726
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,7 +3487,7 @@ GameObject:
   - component: {fileID: 1433700028}
   - component: {fileID: 1433700027}
   m_Layer: 5
-  m_Name: NameText
+  m_Name: PlayerNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3530,9 +3532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Player
-
-'
+  m_text: None
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5479,7 +5479,7 @@ GameObject:
   - component: {fileID: 1846126806}
   - component: {fileID: 1846126805}
   m_Layer: 5
-  m_Name: LevelText
+  m_Name: PlayerLevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5524,7 +5524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level: 10'
+  m_text: 'Level: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6603,8 +6603,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5574449901761712440, guid: a82854a6f1e8fe4458b064de05a2ff1d, type: 3}
+      propertyPath: _maxHealth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8536912936500231056, guid: a82854a6f1e8fe4458b064de05a2ff1d, type: 3}
-      propertyPath: _moveSpeed
+      propertyPath: _playerData.Name
+      value: Hao
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536912936500231056, guid: a82854a6f1e8fe4458b064de05a2ff1d, type: 3}
+      propertyPath: _playerData.Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536912936500231056, guid: a82854a6f1e8fe4458b064de05a2ff1d, type: 3}
+      propertyPath: _playerData.MaxHeath
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536912936500231056, guid: a82854a6f1e8fe4458b064de05a2ff1d, type: 3}
+      propertyPath: _playerData.MaxHealth
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []

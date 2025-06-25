@@ -13,12 +13,14 @@ public class Entity : MonoBehaviour
     protected Rigidbody2D _rb2d;
     protected Collider2D _collider2D;
     protected Animator _animator;
+    protected EntityHealth _entityHealth;
 
     protected virtual void Awake()
     {
         _rb2d = GetComponent<Rigidbody2D>();
         _collider2D = GetComponent<Collider2D>();
         _animator = GetComponentInChildren<Animator>();
+        _entityHealth = GetComponent<EntityHealth>();
     }
 
     protected virtual void Flip()

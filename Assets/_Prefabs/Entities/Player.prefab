@@ -762,11 +762,18 @@ MonoBehaviour:
   _isGround: 0
   _canMove: 1
   _isFacingRight: 1
-  _moveSpeed: 15
+  _moveSpeed: 10
+  _entityName: 
+  _level: 0
   _isRun: 0
   _directionX: 0
   _jumpForce: 5
   _shootPoint: {fileID: 2711218879073082441}
+  _playerData:
+    Name: 
+    Level: 0
+    MaxHeath: 0
+    InventoryItemList: []
 --- !u!114 &5574449901761712440
 MonoBehaviour:
   m_ObjectHideFlags: 0

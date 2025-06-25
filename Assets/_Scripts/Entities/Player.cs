@@ -10,11 +10,21 @@ public class Player : Entity
     [SerializeField] private float _jumpForce = 5f;
     [SerializeField] private Transform _shootPoint;
 
-    private Coroutine _shootCoroutine;
+    [SerializeField] private PlayerData  _playerData;
 
+    private Coroutine _shootCoroutine;
+    private void Start()
+    {
+        Init();
+    }
     private void Update()
     {
         InputHandle();
+    }
+    private void Init()
+    {
+        _entityHealth.Init(_playerData.MaxHealth);
+        EventManager.OnLoadPlayerData?.Invoke(_playerData);
     }
     private void InputHandle()
     {

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174854bff8a7917449bec21414d5266d, type: 3}
   m_Name: SlimeData
   m_EditorClassIdentifier: 
-  enemyName: Slime
-  maxHealth: 10
-  speed: 7
-  animatorController: {fileID: 9100000, guid: 31193055c1a5c4d46acf0cf8d3686ea8, type: 2}
+  EnemyName: Slime
+  MaxHealth: 10
+  MoveSpeed: 10
+  AnimatorController: {fileID: 9100000, guid: 31193055c1a5c4d46acf0cf8d3686ea8, type: 2}
+  PoolType: 0

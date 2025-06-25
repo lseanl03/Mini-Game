@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174854bff8a7917449bec21414d5266d, type: 3}
   m_Name: RatData
   m_EditorClassIdentifier: 
-  enemyName: Rat
-  maxHealth: 10
-  speed: 7
-  animatorController: {fileID: 9100000, guid: b2af98cfbf96ce841963b37ec392cf64, type: 2}
+  EnemyName: Rat
+  MaxHealth: 10
+  MoveSpeed: 10
+  AnimatorController: {fileID: 9100000, guid: b2af98cfbf96ce841963b37ec392cf64, type: 2}
+  PoolType: 2

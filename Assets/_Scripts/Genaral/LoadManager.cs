@@ -66,4 +66,14 @@ public class LoadManager : Singleton<LoadManager>
 
         EventManager.OnSceneChanged?.Invoke(sceneType);
     }
+
+    public void LoadPlayerData()
+    {
+
+    }
+
+    public void SavePlayerData()
+    {
+
+    }
 }

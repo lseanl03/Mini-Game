@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class EntityHealth : MonoBehaviour
 {
-    [SerializeField] public int _maxHealth = 10;
+    [SerializeField] public int _maxHealth;
     [SerializeField] public int _currentHealth;
-    protected virtual void Awake()
+
+    protected virtual void Awake() { }
+    public virtual void Init(int maxHeath)
     {
-        _currentHealth = _maxHealth;
+        _maxHealth = maxHeath;
+        _currentHealth = maxHeath;
     }
     public virtual void TakeDamage(int damage)
     {
